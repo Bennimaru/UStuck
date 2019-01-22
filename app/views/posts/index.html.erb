@@ -2,6 +2,6 @@
 
 <ul>
   <%@posts.each do|post|%>
-  <li><%=post.category.name%> <%=link_to post.name, post_path(post)%></li>
+  <li><%=post.category.name%> <%=link_to post.title, post_path(post)%></li>
   <%end%>
 </ul>

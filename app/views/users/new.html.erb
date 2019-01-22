@@ -2,10 +2,25 @@
 
 <%=form_for @user do |f|  %>
 <%=f.label :name%>
-<%= f.textfield :name%>
+<%= f.text_field :name%>
 <%= f.label :username  %>
-<%= f.textfield :username %>
+<%= f.text_field :username %>
 <%= f.label :password  %>
-<%= f.textfield :password %>
+<%= f.text_field :password %>
 <%= f.submit "Submit" %>
-<%end  %>
+<% end %>
+
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@user.errors.count, "error") %>
+      prohibited this article from being saved:
+    </h2>
+
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

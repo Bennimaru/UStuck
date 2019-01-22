@@ -33,13 +33,13 @@ class PostsController < ApplicationController
       redirect_to post_path(@post)
     else
       render :edit
-    end 
+    end
   end
 
 private
 
   def post_params
-    params.require(:post).permit(:title,:content)
+    params.require(:post).permit(:title,:content,:user_id,:category_id)
   end
 
-
+end
