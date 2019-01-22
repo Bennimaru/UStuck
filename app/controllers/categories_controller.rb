@@ -1,3 +1,4 @@
+
 class CategoriesController < ApplicationController
 
   def index
@@ -8,4 +9,4 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
   end 
 
-end
+
