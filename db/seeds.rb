@@ -8,7 +8,9 @@
 Post.destroy_all
 Category.destroy_all
 
+Category.create(name:"C#")
 Category.create(name:"Java")
+Category.create(name:"Javascript")
 Category.create(name:"Python")
 Category.create(name:"Ruby")
 Category.create(name:"Memes")
