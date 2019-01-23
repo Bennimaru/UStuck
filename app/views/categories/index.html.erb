@@ -1,4 +1,7 @@
 <h1>List of Categories</h1>
+
+<h4>Go to <%=link_to "Post Central", posts_path%></h4>
+
 <ul>
   <%@categories.each do |category|%>
   <li><%= link_to category.name.upcase, category_path(category)%></li>
