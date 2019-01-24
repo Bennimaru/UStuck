@@ -6,3 +6,5 @@
     <li><%= link_to p.title, post_path(p) %></li>
   <% end %>
 </ol>
+<%= button_to 'Go To Categories', categories_path, method: :get %>
+<%= button_to 'Create A Post', new_post_path, method: :get %>
