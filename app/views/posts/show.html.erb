@@ -2,6 +2,13 @@
 
 <h3>Number of Views: <%=@post.hits%> </h3>
 
-<p><%=@post.content%></p>
-
 <p>Back to <%= link_to "Post Central", posts_path%></p>
+
+<%= form_for @post do |f| %>
+<%= f.text_area :content%>
+<%end%>
+
+<%= form_for @comment do |f| %>
+<%= f.text_area :content %>
+<%= f.submit %>
+<%end%>
