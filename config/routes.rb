@@ -5,4 +5,10 @@ Rails.application.routes.draw do
   resources :posts
   resources :categories
   resources :comments
+  resources :sessions
+  get '/signup', to:'users#new'
+  get '/login', to:'sessions#new', as:"login"
+  post '/sessions', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy', as: 'logout'
+
 end

@@ -10,6 +10,20 @@
   </head>
 
   <body>
+    <% if logged_in? %>
+    <nav>
+      <%= form_tag "/logout", method: :delete do %>
+        <%= submit_tag "Logout" %>
+      <% end %>
+    </nav>
+
+    <nav>
+      <%= form_tag @user, method: :get do %>
+        <%= submit_tag "Your Profile" %>
+      <% end %>
+    </nav>
+    <% end %>
     <%= yield %>
+
   </body>
 </html>
