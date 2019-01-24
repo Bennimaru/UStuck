@@ -1,3 +1,7 @@
 <h1><%=@post.title%></h1>
+<h3>Posted by: <%=@post.user.username%> on <%=@post.created_at%></h3>
+<h3>Number of Views: <%=@post.hits%> </h3>
 
 <p><%=@post.content%></p>
+
+<p>Back to <%= link_to "Post Central", posts_path%></p>

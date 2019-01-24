@@ -2,5 +2,8 @@
 
 <h3>List of Posts</h3>
 <ul>
-  <li><%= @category.posts %></li>
+  <% @category.posts.each do|post|%>
+  <li><%= link_to post.title, post_path(post)%></li>
+  <%end%>
 </ul>
+<%= button_to 'Categories', categories_path, method: :get %>
