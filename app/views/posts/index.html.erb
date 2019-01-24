@@ -4,8 +4,11 @@
 
 <ul>
   <%@posts.reverse.each do|post|%>
-  <li>Category: <%=post.category.name%> <br>
-    Post: <%=link_to post.title, post_path(post)%> Created on: <%=post.created_at%>
+  <li>
+    Category: <%=post.category.name%><br>
+    Post: <%=link_to post.title, post_path(post)%><br>
+    Created on: <%=post.created_at%>
   </li>
+  <br>
   <%end%>
 </ul>
