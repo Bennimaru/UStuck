@@ -5,26 +5,13 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    # @post = Post.find(params[:id])
+    # @post = Post.find_by(params[:comment][:post_id])
+    @comment = Comment.create(comment_params)
     if @comment.valid?
-      @comment.save
-      redirect_to post_path(@post)
+      redirect_to post_path(@comment.post)
     else
-      render new_comment_path
-    end
-  end
-
-  def edit
-    @comment = Comment.find(params[:id])
-  end
-
-  def update
-    @comment = Comment.find(params[:id])
-    @comment.update(comment_params)
-    if @comment.valid?
-      redirect_to post_path(@post)
-    else
-      render :edit
+      flash[:errors] = @comment.errors.full_messages
     end
   end
 

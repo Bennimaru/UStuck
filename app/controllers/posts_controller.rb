@@ -6,10 +6,10 @@ class PostsController < ApplicationController
   end
 
   def show
-
     @post = Post.find(params[:id])
-    @user=current_user
-
+    @user = current_user
+    @comment = Comment.new
+    @comments = Comment.where("post_id=#{@post.id}")
     @post.punch(request)
   end
 
@@ -19,7 +19,6 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-
     if @post.valid?
       @post.save
       redirect_to post_path(@post)
@@ -27,19 +26,6 @@ class PostsController < ApplicationController
       render :new
     end
   end
-
-
-  # @user = User.find_by(username: params[:username])
-  #
-  # if @user && @user.authenticate(params[:password])
-  #   session[:user_id] = @user.id
-  #   redirect_to @user
-
-
-
-
-
-
 
   def edit
     @post = Post.find(params[:id])

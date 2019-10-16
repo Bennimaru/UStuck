@@ -8,7 +8,17 @@
 <%= f.text_area :content%>
 <%end%>
 
-<%= form_for @comment do |f| %>
+<br>
+<ul>
+  <%@comments.each do |c|%>
+  <li><%= c.content %></li>
+  <%end%>
+</ul>
+<br>
+
+<%= form_for @comment do |f|%>
+<%= f.label :content %>
 <%= f.text_area :content %>
+<%= f.collection_select :post_id,Post.all,:id,:title %>
 <%= f.submit %>
 <%end%>
